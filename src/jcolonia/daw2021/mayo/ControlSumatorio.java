@@ -64,7 +64,7 @@ public class ControlSumatorio {
 				mostrarSuma();
 				break;
 			case 4: // Opción 4: Reset
-				//restablecer();
+				restablecer();
 				break;
 			default: // Opción no esperada: abortar
 				ejecutarGenérico(opciónElegida);
@@ -72,6 +72,11 @@ public class ControlSumatorio {
 				System.exit(1);
 			}
 		} while (!fin);
+	}
+
+	private void restablecer() {
+		conjunto = new ListaNúmeros();
+		
 	}
 
 	private void mostrarSumandos() {
