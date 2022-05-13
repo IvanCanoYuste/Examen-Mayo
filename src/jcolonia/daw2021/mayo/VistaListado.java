@@ -4,12 +4,11 @@ import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class VistaListado {
+public class VistaListado extends Vista{
 
-	private Scanner sc;
 
-	public VistaListado(Scanner sc) {
-		this.sc = sc;
+	public VistaListado(String título,Scanner sc) {
+		super(título, sc);
 	}
 
 	/**

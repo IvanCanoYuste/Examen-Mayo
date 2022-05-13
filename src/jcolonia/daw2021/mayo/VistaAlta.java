@@ -1,23 +1,16 @@
 package jcolonia.daw2021.mayo;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class VistaAlta {
+public class VistaAlta extends Vista{
 
-	private Scanner sc;
 	
-	private VistaMenúBásico menúPrincipal;
-	private ListaNúmeros conjunto;
-	
-	public VistaAlta(Scanner sc) {
-		this.sc = sc;
-		conjunto = new ListaNúmeros();
-		menúPrincipal = new VistaMenúBásico(null, sc, null);
+	public VistaAlta(String título,Scanner sc) {
+		super(título, sc);
 	}
 	
-	public double cargarVotos() {
+	public double cargarNúmeros() {
 		
 		String líneaTexto="";
 		double numeroDecimal=0.0;
@@ -26,7 +19,7 @@ public class VistaAlta {
 		while(!seguir) {
 			try {
 				out.println("\nIntroduce el número: ");
-				líneaTexto = menúPrincipal.getEntrada().nextLine();
+				líneaTexto = getEntrada().nextLine();
 				if(líneaTexto.equals("")){
 					out.println("Campo vacío");
 				}else {	

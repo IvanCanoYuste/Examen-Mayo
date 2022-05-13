@@ -74,27 +74,27 @@ public class ControlSumatorio {
 		} while (!fin);
 	}
 
-	private void restablecer() {
-		conjunto = new ListaNúmeros();
+	private void cargarSumando() throws SumatorioNumberException {
+		VistaAlta altas = new VistaAlta(TÍTULO_MENÚ_PRINCIPAL,menúPrincipal.getEntrada());
 		
+		conjunto.add(altas.cargarNúmeros());		
 	}
 
 	private void mostrarSumandos() {
-		VistaListado listado = new VistaListado(menúPrincipal.getEntrada());
+		VistaListado listado = new VistaListado(TÍTULO_MENÚ_PRINCIPAL,menúPrincipal.getEntrada());
 		
 		listado.mostrarListado(conjunto.toListaString());
 		
 	}
 
-	private void cargarSumando() throws SumatorioNumberException {
-		VistaAlta altas = new VistaAlta(menúPrincipal.getEntrada());
-		
-		conjunto.add(altas.cargarVotos());		
-	}
-
 	private void mostrarSuma() {
 		
 		Vista.mostrarTexto(conjunto.toString());
+	}
+
+	private void restablecer() {
+		conjunto = new ListaNúmeros();
+		
 	}
 
 	private void ejecutarGenérico(int id) {
