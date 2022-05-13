@@ -1,5 +1,6 @@
 package jcolonia.daw2021.mayo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -30,13 +31,16 @@ public class ControlSumatorio {
 	private ListaNúmeros conjunto;
 
 	private VistaMenúBásico menúPrincipal;
+	
+	private ArrayList<String> lista;
 
 	public ControlSumatorio(Scanner in) {
 		this.entrada = in;
 		conjunto = new ListaNúmeros();
+		lista = new ArrayList<String>(6);
 	}
 
-	private void buclePrincipal() {
+	private void buclePrincipal() throws SumatorioNumberException {
 		int opciónElegida;
 		boolean fin = false;
 
@@ -52,18 +56,18 @@ public class ControlSumatorio {
 				fin = true;
 				Vista.mostrarAviso("¡¡¡A-D-I-O-S!!");
 				break;
-//			case 1: // Opción 1: Entrada datos
-//				cargarSumando();
-//				break;
-//			case 2: // Opción 2: Mostrar sumandos
-//				mostrarSumandos();
-//				break;
-//			case 3: // Opción 3: Mostrar suma
-//				mostrarSuma();
-//				break;
-//			case 4: // Opción 4: Reset
-//				restablecer();
-//				break;
+			case 1: //Opción 1: Entrada datos
+				cargarSumando();
+				break;
+			case 2: // Opción 2: Mostrar sumandos
+				mostrarSumandos();
+				break;
+			case 3: // Opción 3: Mostrar suma
+				//mostrarSuma();
+				break;
+			case 4: // Opción 4: Reset
+				//restablecer();
+				break;
 			default: // Opción no esperada: abortar
 				ejecutarGenérico(opciónElegida);
 				System.err.println("Error interno de programa - operación pendiente de desarrollo");
@@ -72,13 +76,24 @@ public class ControlSumatorio {
 		} while (!fin);
 	}
 
+	private void cargarSumando() throws SumatorioNumberException {
+		VistaAlta altas = new VistaAlta(menúPrincipal.getEntrada());
+		
+		conjunto.add(altas.cargarVotos());		
+	}
+
+	private void mostrarSuma() {
+		VistaListado listado = new VistaListado(menúPrincipal.getEntrada());
+		listado.mostrarListado(conjunto.toString());
+	}
+
 	private void ejecutarGenérico(int id) {
 		String mensaje;
 		mensaje = String.format("%n  Ha elegido la opción %d: «%s»", id, OPCIONES_MENÚ_PRINCIPAL[id - 1]);
 		Vista.mostrarTexto(mensaje);
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SumatorioNumberException {
 		Scanner entrada = new Scanner(System.in);
 
 		ControlSumatorio control = new ControlSumatorio(entrada);
