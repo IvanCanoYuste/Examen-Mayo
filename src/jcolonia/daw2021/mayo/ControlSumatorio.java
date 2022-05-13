@@ -32,12 +32,10 @@ public class ControlSumatorio {
 
 	private VistaMenúBásico menúPrincipal;
 	
-	private ArrayList<String> lista;
 
 	public ControlSumatorio(Scanner in) {
 		this.entrada = in;
 		conjunto = new ListaNúmeros();
-		lista = new ArrayList<String>(6);
 	}
 
 	private void buclePrincipal() throws SumatorioNumberException {
@@ -63,7 +61,7 @@ public class ControlSumatorio {
 				mostrarSumandos();
 				break;
 			case 3: // Opción 3: Mostrar suma
-				//mostrarSuma();
+				mostrarSuma();
 				break;
 			case 4: // Opción 4: Reset
 				//restablecer();
@@ -76,6 +74,13 @@ public class ControlSumatorio {
 		} while (!fin);
 	}
 
+	private void mostrarSumandos() {
+		VistaListado listado = new VistaListado(menúPrincipal.getEntrada());
+		
+		listado.mostrarListado(conjunto.toListaString());
+		
+	}
+
 	private void cargarSumando() throws SumatorioNumberException {
 		VistaAlta altas = new VistaAlta(menúPrincipal.getEntrada());
 		
@@ -83,8 +88,8 @@ public class ControlSumatorio {
 	}
 
 	private void mostrarSuma() {
-		VistaListado listado = new VistaListado(menúPrincipal.getEntrada());
-		listado.mostrarListado(conjunto.toString());
+		
+		Vista.mostrarTexto(conjunto.toString());
 	}
 
 	private void ejecutarGenérico(int id) {

@@ -1,13 +1,13 @@
 package jcolonia.daw2021.mayo;
 
 import static java.lang.System.out;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VistaListado {
 
 	private Scanner sc;
-	
+
 	public VistaListado(Scanner sc) {
 		this.sc = sc;
 	}
@@ -17,7 +17,12 @@ public class VistaListado {
 	 *
 	 * @param imprimir array con las cosas que mostrar por pantalla.
 	 */
-	public void mostrarListado(String imprimir) {
-		out.println(imprimir);
+	public void mostrarListado(ArrayList<String> imprimir) {
+
+		for (int i = 0; i < imprimir.size(); i++) {
+			out.printf("%s%n", imprimir.get(i).toString());
 		}
+		out.println();
+	}
+
 }
