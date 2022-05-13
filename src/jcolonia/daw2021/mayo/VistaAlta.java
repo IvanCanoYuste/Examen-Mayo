@@ -3,13 +3,27 @@ package jcolonia.daw2021.mayo;
 import java.util.Scanner;
 import static java.lang.System.out;
 
+/**
+ * The Class VistaAlta.
+ */
 public class VistaAlta extends Vista{
 
 	
+	/**
+	 * Instantiates a new vista alta.
+	 *
+	 * @param título the título
+	 * @param sc the sc
+	 */
 	public VistaAlta(String título,Scanner sc) {
 		super(título, sc);
 	}
 	
+	/**
+	 * Cargar números.
+	 *
+	 * @return the double
+	 */
 	public double cargarNúmeros() {
 		
 		String líneaTexto="";

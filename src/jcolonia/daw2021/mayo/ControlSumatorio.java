@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 /**
  * Gestión de números «decimales»: recogida y visualización de la suma.
- * 
- * @versión 2022.3.1
+ *
  * @author <a href="dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @versión 2022.3.1
  */
 public class ControlSumatorio {
 	/**
@@ -28,16 +28,28 @@ public class ControlSumatorio {
 	 */
 	private Scanner entrada;
 
+	/** The conjunto. */
 	private ListaNúmeros conjunto;
 
+	/** The menú principal. */
 	private VistaMenúBásico menúPrincipal;
 	
 
+	/**
+	 * Instantiates a new control sumatorio.
+	 *
+	 * @param in the in
+	 */
 	public ControlSumatorio(Scanner in) {
 		this.entrada = in;
 		conjunto = new ListaNúmeros();
 	}
 
+	/**
+	 * Bucle principal.
+	 *
+	 * @throws SumatorioNumberException the sumatorio number exception
+	 */
 	private void buclePrincipal() throws SumatorioNumberException {
 		int opciónElegida;
 		boolean fin = false;
@@ -74,12 +86,20 @@ public class ControlSumatorio {
 		} while (!fin);
 	}
 
+	/**
+	 * Cargar sumando.
+	 *
+	 * @throws SumatorioNumberException the sumatorio number exception
+	 */
 	private void cargarSumando() throws SumatorioNumberException {
 		VistaAlta altas = new VistaAlta(TÍTULO_MENÚ_PRINCIPAL,menúPrincipal.getEntrada());
 		
 		conjunto.add(altas.cargarNúmeros());		
 	}
 
+	/**
+	 * Mostrar sumandos.
+	 */
 	private void mostrarSumandos() {
 		VistaListado listado = new VistaListado(TÍTULO_MENÚ_PRINCIPAL,menúPrincipal.getEntrada());
 		
@@ -87,22 +107,39 @@ public class ControlSumatorio {
 		
 	}
 
+	/**
+	 * Mostrar suma.
+	 */
 	private void mostrarSuma() {
 		
 		Vista.mostrarTexto(conjunto.toString());
 	}
 
+	/**
+	 * Restablecer.
+	 */
 	private void restablecer() {
 		conjunto = new ListaNúmeros();
 		
 	}
 
+	/**
+	 * Ejecutar genérico.
+	 *
+	 * @param id the id
+	 */
 	private void ejecutarGenérico(int id) {
 		String mensaje;
 		mensaje = String.format("%n  Ha elegido la opción %d: «%s»", id, OPCIONES_MENÚ_PRINCIPAL[id - 1]);
 		Vista.mostrarTexto(mensaje);
 	}
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws SumatorioNumberException the sumatorio number exception
+	 */
 	public static void main(String[] args) throws SumatorioNumberException {
 		Scanner entrada = new Scanner(System.in);
 

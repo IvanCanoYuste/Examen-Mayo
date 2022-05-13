@@ -11,16 +11,16 @@ import java.util.Formatter;
  * fraccionaria, almacenamiento en coma flotante–. Admite valores positivos con
  * un valor máximo y un numero máximo de decimales predeterminado. Ver
  * {@link #MÁX} y {@link #PRECISIÓN}.
- * 
- * @versión 2022.3.2
+ *
  * @author <a href="dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @versión 2022.3.2
  */
 
 public class ListaNúmeros {
 	/** Longitud máxima, tanto de la parte entera como de la parte decimal. */
 	public static final int PRECISIÓN = 4;
 
-	/** Valor máximo admitido, determinado por {@link #PRECISIÓN} */
+	/**  Valor máximo admitido, determinado por {@link #PRECISIÓN}. */
 	private static final double MÁX;
 
 	/**
@@ -176,6 +176,8 @@ public class ListaNúmeros {
 	 *   ------------
 	 *     10566,6100
 	 * </pre>
+	 *
+	 * @return the string
 	 */
 	@Override
 	public String toString() {

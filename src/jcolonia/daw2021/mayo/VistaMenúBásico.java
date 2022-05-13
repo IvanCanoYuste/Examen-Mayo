@@ -4,15 +4,29 @@ import static java.lang.System.out;
 
 import java.util.Scanner;
 
+/**
+ * The Class VistaMenúBásico.
+ */
 public class VistaMenúBásico extends Vista{
 	
+	/** The OPCIONE S MEN ú PRINCIPAL. */
 	private String [] OPCIONES_MENÚ_PRINCIPAL;
 	
+	/**
+	 * Instantiates a new vista menú básico.
+	 *
+	 * @param TÍTULO_MENÚ_PRINCIPAL the TÍTUL O MEN ú PRINCIPAL
+	 * @param entrada the entrada
+	 * @param OPCIONES_MENÚ_PRINCIPAL the OPCIONE S MEN ú PRINCIPAL
+	 */
 	public VistaMenúBásico(String TÍTULO_MENÚ_PRINCIPAL, Scanner entrada, String [] OPCIONES_MENÚ_PRINCIPAL) {
 		super(TÍTULO_MENÚ_PRINCIPAL, entrada);
 		this.OPCIONES_MENÚ_PRINCIPAL = OPCIONES_MENÚ_PRINCIPAL;
 	}
 
+	/**
+	 * Mostrar opciones.
+	 */
 	public void mostrarOpciones() {
 		out.println("Elige una opción");
 		out.println("----------------------------------------\n");
@@ -22,6 +36,11 @@ public class VistaMenúBásico extends Vista{
 		out.println("----------------------------------------\n");
 	}
 	
+	/**
+	 * Pedir opción.
+	 *
+	 * @return the int
+	 */
 	public int pedirOpción() {
 		String lineaTexto;
 		int número = 0;

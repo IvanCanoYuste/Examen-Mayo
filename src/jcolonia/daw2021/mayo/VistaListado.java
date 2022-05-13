@@ -4,9 +4,18 @@ import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The Class VistaListado.
+ */
 public class VistaListado extends Vista{
 
 
+	/**
+	 * Instantiates a new vista listado.
+	 *
+	 * @param título the título
+	 * @param sc the sc
+	 */
 	public VistaListado(String título,Scanner sc) {
 		super(título, sc);
 	}
@@ -23,5 +32,6 @@ public class VistaListado extends Vista{
 		}
 		out.println();
 	}
+	
 
 }
